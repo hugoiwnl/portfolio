@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESG Report Analyzer | Predrag Djindjic</title>
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Space Mono', 'monospace'],
+                    },
+                    colors: {
+                        bgMain: '#050505',
+                        bgCard: '#0f0f0f',
+                        borderMain: '#1f1f1f',
+                        accent: '#c6f861',
+                        accentDim: 'rgba(198, 248, 97, 0.1)',
+                        textMuted: '#8a8a8a',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #050505; color: #ffffff; }
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image:
+                linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+        }
+        .blob {
+            filter: blur(60px);
+            opacity: 0.12;
+            animation: pulse 8s infinite alternate;
+        }
+        @keyframes pulse {
+            from { transform: scale(1) translate(0, 0); }
+            to { transform: scale(1.1) translate(20px, 10px); }
+        }
+    </style>
+</head>
+<body class="w-full min-h-screen bg-bgMain font-sans selection:bg-accent selection:text-black">
+
+    <!-- Nav -->
+    <nav class="fixed top-0 w-full z-50 bg-bgMain/80 backdrop-blur-md border-b border-borderMain">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="text-xl font-medium tracking-tight flex items-center gap-2">
+                <div class="w-6 h-6 bg-accent rounded-sm flex items-center justify-center">
+                    <span class="text-black font-mono font-bold text-xs">PD</span>
+                </div>
+                P.<span class="text-textMuted">Djindjic</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8 text-sm font-mono">
+                <a href="index.html#projects" class="text-textMuted hover:text-white transition-colors flex items-center gap-2">
+                    <i class="ph ph-arrow-left"></i> Back to Projects
+                </a>
+                <a href="mailto:hugoserbia@gmail.com" class="px-5 py-2.5 bg-white text-black hover:bg-accent transition-colors rounded-sm font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="relative pt-32 pb-16 overflow-hidden border-b border-borderMain">
+        <div class="absolute inset-0 bg-grid -z-10"></div>
+        <div class="absolute top-1/4 left-1/3 w-96 h-96 bg-blue-500 blob rounded-full"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent blob rounded-full" style="animation-delay: -4s;"></div>
+
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="max-w-3xl">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="px-3 py-1 text-xs font-mono bg-accentDim text-accent border border-accent/20 rounded-full">NLP · RAG</span>
+                    <span class="px-3 py-1 text-xs font-mono bg-zinc-800 text-zinc-400 border border-borderMain rounded-full">Finalist · AIM Hackathon 2024</span>
+                </div>
+                <h1 class="text-5xl lg:text-7xl font-medium tracking-tighter leading-[1.1] mb-8">
+                    ESG Report<br>
+                    <span class="italic text-textMuted">Analyzer</span>
+                </h1>
+                <p class="text-xl text-textMuted leading-relaxed">
+                    A RAG-powered LLM pipeline to extract, analyze, and compare ESG and sustainability scores from 140+ corporate PDF reports, enabling structured cross-company comparison at scale.
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Preview visual -->
+    <div class="max-w-7xl mx-auto px-6 py-12">
+        <div class="aspect-[21/9] bg-bgCard border border-borderMain rounded-sm overflow-hidden relative">
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-full h-full bg-[#080808] p-12 font-mono text-sm flex items-center justify-center gap-16">
+                    <!-- Pipeline visual -->
+                    <div class="flex flex-col gap-3 text-xs">
+                        <div class="text-accent mb-2 uppercase tracking-widest text-[10px]">Pipeline</div>
+                        <div class="flex items-center gap-2 text-textMuted"><i class="ph ph-file-pdf text-red-400"></i> PDF Ingestion</div>
+                        <div class="w-px h-4 bg-borderMain ml-2"></div>
+                        <div class="flex items-center gap-2 text-textMuted"><i class="ph ph-scissors text-accent"></i> Chunking</div>
+                        <div class="w-px h-4 bg-borderMain ml-2"></div>
+                        <div class="flex items-center gap-2 text-textMuted"><i class="ph ph-graph text-blue-400"></i> Embedding</div>
+                        <div class="w-px h-4 bg-borderMain ml-2"></div>
+                        <div class="flex items-center gap-2 text-textMuted"><i class="ph ph-magnifying-glass text-purple-400"></i> Retrieval</div>
+                        <div class="w-px h-4 bg-borderMain ml-2"></div>
+                        <div class="flex items-center gap-2 text-white"><i class="ph ph-sparkle text-accent"></i> LLM Answer</div>
+                    </div>
+
+                    <div class="w-px h-40 bg-borderMain"></div>
+
+                    <!-- Query/result visual -->
+                    <div class="flex flex-col gap-3 max-w-xs">
+                        <div class="text-accent text-[10px] uppercase tracking-widest mb-2">Sample Query</div>
+                        <div class="text-white text-xs border border-borderMain px-3 py-2 rounded-sm bg-bgCard">ESG score for Tesla 2023?</div>
+                        <div class="text-textMuted text-[10px]">Retrieving relevant passages...</div>
+                        <div class="border-l-2 border-accent pl-3 text-xs space-y-1 mt-1">
+                            <div class="text-textMuted">Environmental: <span class="text-accent">72/100</span></div>
+                            <div class="text-textMuted">Social: <span class="text-accent">65/100</span></div>
+                            <div class="text-textMuted">Governance: <span class="text-accent">58/100</span></div>
+                        </div>
+                    </div>
+
+                    <div class="w-px h-40 bg-borderMain"></div>
+
+                    <!-- Stats -->
+                    <div class="flex flex-col gap-3 text-xs">
+                        <div class="text-accent mb-2 uppercase tracking-widest text-[10px]">Scale</div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-accent">▸</span>
+                            <span class="text-textMuted">Reports</span>
+                            <span class="text-white ml-auto">140+</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-accent">▸</span>
+                            <span class="text-textMuted">Companies</span>
+                            <span class="text-white ml-auto">—</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-accent">▸</span>
+                            <span class="text-textMuted">Event</span>
+                            <span class="text-white ml-auto">AIM 2024</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <main class="max-w-7xl mx-auto px-6 py-20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+
+            <!-- Left: content -->
+            <div class="lg:col-span-8 space-y-12">
+
+                <section>
+                    <h2 class="text-sm font-mono text-accent uppercase tracking-widest mb-6">Overview</h2>
+                    <h3 class="text-3xl font-medium mb-6">The Challenge</h3>
+                    <p class="text-textMuted leading-relaxed mb-6">
+                        <!-- Add your challenge description here -->
+                        Placeholder — describe the problem you were solving.
+                    </p>
+                    <p class="text-textMuted leading-relaxed">
+                        <!-- Add more context here -->
+                        Placeholder — add more context or motivation.
+                    </p>
+                </section>
+
+                <section>
+                    <h3 class="text-3xl font-medium mb-6">The Solution</h3>
+                    <div class="space-y-6 text-textMuted leading-relaxed">
+                        <p>
+                            <!-- Describe your solution here -->
+                            Placeholder — describe your approach and architecture.
+                        </p>
+                        <ul class="space-y-4 list-none font-mono text-sm">
+                            <li class="flex gap-4">
+                                <span class="text-accent">01.</span>
+                                <div><span class="text-white">Ingestion:</span> Placeholder description.</div>
+                            </li>
+                            <li class="flex gap-4">
+                                <span class="text-accent">02.</span>
+                                <div><span class="text-white">Retrieval:</span> Placeholder description.</div>
+                            </li>
+                            <li class="flex gap-4">
+                                <span class="text-accent">03.</span>
+                                <div><span class="text-white">Generation:</span> Placeholder description.</div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Metrics -->
+                <section class="bg-bgCard border border-borderMain p-8 rounded-sm">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-12 h-12 rounded bg-accentDim flex items-center justify-center">
+                            <i class="ph ph-chart-line text-2xl text-accent"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-white">Result</h4>
+                            <p class="text-xs font-mono text-textMuted uppercase tracking-wider">AIM Hackathon 2024 · Vienna</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div>
+                            <div class="text-3xl font-medium text-white mb-1">Top 5</div>
+                            <div class="text-xs font-mono text-textMuted uppercase">Finalist</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-medium text-white mb-1">140+</div>
+                            <div class="text-xs font-mono text-textMuted uppercase">PDF Reports</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-medium text-white mb-1">—</div>
+                            <div class="text-xs font-mono text-textMuted uppercase">Placeholder metric</div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Right: sidebar -->
+            <div class="lg:col-span-4">
+                <div class="sticky top-32 space-y-8">
+
+                    <!-- Tech stack -->
+                    <div>
+                        <h2 class="text-sm font-mono text-accent uppercase tracking-widest mb-6">Tech Stack</h2>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="bg-bgCard border border-borderMain p-4 rounded-sm hover:border-accent transition-colors">
+                                <i class="devicon-python-plain colored text-2xl mb-2"></i>
+                                <div class="text-sm font-mono text-white">Python</div>
+                            </div>
+                            <div class="bg-bgCard border border-borderMain p-4 rounded-sm hover:border-accent transition-colors">
+                                <i class="ph ph-sparkle text-2xl text-purple-400 mb-2"></i>
+                                <div class="text-sm font-mono text-white">LangChain</div>
+                            </div>
+                            <div class="bg-bgCard border border-borderMain p-4 rounded-sm hover:border-accent transition-colors">
+                                <i class="ph ph-graph text-2xl text-blue-400 mb-2"></i>
+                                <div class="text-sm font-mono text-white">Embeddings</div>
+                            </div>
+                            <div class="bg-bgCard border border-borderMain p-4 rounded-sm hover:border-accent transition-colors">
+                                <i class="ph ph-file-pdf text-2xl text-red-400 mb-2"></i>
+                                <div class="text-sm font-mono text-white">PDF Parsing</div>
+                            </div>
+                            <div class="bg-bgCard border border-borderMain p-4 rounded-sm hover:border-accent transition-colors">
+                                <i class="devicon-docker-plain colored text-2xl mb-2"></i>
+                                <div class="text-sm font-mono text-white">Docker</div>
+                            </div>
+                            <div class="bg-bgCard border border-borderMain p-4 rounded-sm hover:border-accent transition-colors">
+                                <i class="devicon-git-plain colored text-2xl mb-2"></i>
+                                <div class="text-sm font-mono text-white">Git</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Roles -->
+                    <div class="p-6 border border-borderMain bg-bgCard/50 rounded-sm">
+                        <h4 class="text-sm font-mono text-white mb-4 uppercase tracking-wider">My Role</h4>
+                        <ul class="space-y-3 text-sm text-textMuted font-mono">
+                            <li class="flex items-center gap-2"><i class="ph ph-check text-accent"></i> Pipeline Architecture</li>
+                            <li class="flex items-center gap-2"><i class="ph ph-check text-accent"></i> LLM Integration</li>
+                            <li class="flex items-center gap-2"><i class="ph ph-check text-accent"></i> Data Engineering</li>
+                        </ul>
+                    </div>
+
+                    <!-- GitHub link -->
+                    <a href="#" class="flex items-center justify-center gap-2 w-full py-4 bg-white text-black font-medium hover:bg-accent transition-colors rounded-sm">
+                        <i class="ph ph-github-logo text-xl"></i> View Repository
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="bg-bgCard border-t border-borderMain py-12">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="font-mono text-sm text-textMuted">© 2025 Predrag Djindjic</div>
+            <div class="flex gap-8">
+                <a href="safe-dash.html" class="text-sm font-mono text-textMuted hover:text-white flex items-center gap-2">
+                    <i class="ph ph-arrow-left"></i> Previous Project
+                </a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safe Dash | Predrag Djindjic</title>
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Space Mono', 'monospace'],
+                    },
+                    colors: {
+                        bgMain: '#050505',
+                        bgCard: '#0f0f0f',
+                        borderMain: '#1f1f1f',
+                        accent: '#c6f861',
+                        accentDim: 'rgba(198, 248, 97, 0.1)',
+                        textMuted: '#8a8a8a',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #050505; color: #ffffff; }
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image:
+                linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+        }
+        .blob {
+            filter: blur(60px);
+            opacity: 0.12;
+            animation: pulse 8s infinite alternate;
+        }
+        @keyframes pulse {
+            from { transform: scale(1) translate(0, 0); }
+            to { transform: scale(1.1) translate(20px, 10px); }
+        }
+    </style>
+</head>
+<body class="w-full min-h-screen bg-bgMain font-sans selection:bg-accent selection:text-black">
+
+    <!-- Nav -->
+    <nav class="fixed top-0 w-full z-50 bg-bgMain/80 backdrop-blur-md border-b border-borderMain">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="text-xl font-medium tracking-tight flex items-center gap-2">
+                <div class="w-6 h-6 bg-accent rounded-sm flex items-center justify-center">
+                    <span class="text-black font-mono font-bold text-xs">PD</span>
+                </div>
+                P.<span class="text-textMuted">Djindjic</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8 text-sm font-mono">
+                <a href="index.html#projects" class="text-textMuted hover:text-white transition-colors flex items-center gap-2">
+                    <i class="ph ph-arrow-left"></i> Back to Projects
+                </a>
+                <a href="mailto:hugoserbia@gmail.com" class="px-5 py-2.5 bg-white text-black hover:bg-accent transition-colors rounded-sm font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="relative pt-32 pb-16 overflow-hidden border-b border-borderMain">
+        <div class="absolute inset-0 bg-grid -z-10"></div>
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-accent blob rounded-full"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-green-500 blob rounded-full" style="animation-delay: -4s;"></div>
+
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="max-w-3xl">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="px-3 py-1 text-xs font-mono bg-accentDim text-accent border border-accent/20 rounded-full">Computer Vision</span>
+                    <span class="px-3 py-1 text-xs font-mono bg-accentDim text-accent border border-accent/20 rounded-full">1st Place &middot; Dragonhack 2023</span>
+                </div>
+                <h1 class="text-5xl lg:text-7xl font-medium tracking-tighter leading-[1.1] mb-8">
+                    Safe Dash &mdash;<br>
+                    <span class="italic text-textMuted">Driver Safety System</span>
+                </h1>
+                <p class="text-xl text-textMuted leading-relaxed">
+                    An affordable, plug-and-play vehicle safety system bringing modern driver assistance to older cars - combining real-time drowsiness detection and stereo collision warning on a Raspberry Pi 5.
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features image -->
+    <div class="max-w-7xl mx-auto px-6 py-12">
+        <div class="bg-bgCard border border-borderMain rounded-sm overflow-hidden">
+            <img src="safedash_features.png" alt="Safe Dash Features" class="w-full object-cover">
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <main class="max-w-7xl mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+
+            <!-- Left: content -->
+            <div class="lg:col-span-8 space-y-12">
+
+                <section>
+                    <h2 class="text-sm font-mono text-accent uppercase tracking-widest mb-6">Overview</h2>
+                    <h3 class="text-3xl font-medium mb-6">The Problem</h3>
+                    <p class="text-textMuted leading-relaxed mb-6">
+                        Over 25% of vehicles on the road are at least 17 years old - and older cars have significantly higher accident fatality rates. Modern driver assistance systems (ADAS) are standard on new vehicles, but entirely out of reach for the vast majority of drivers who can't afford a new car.
+                    </p>
+                    <p class="text-textMuted leading-relaxed">
+                        The two leading causes of accidents — driver fatigue and failure to maintain safe following distance — are exactly what modern ADAS systems address. Safe Dash was built to close this gap: a low-cost, no-modification-required device that delivers the same two core protections to any vehicle.
+                    </p>
+                </section>
+
+                <section>
+                    <h3 class="text-3xl font-medium mb-6">The Solution</h3>
+                    <div class="space-y-6 text-textMuted leading-relaxed">
+                        <p>
+                            Safe Dash runs on a Raspberry Pi 5 and uses two camera inputs to monitor both the driver and the road simultaneously. The system is entirely self-contained — no app installation, no wiring, no vehicle modifications.
+                        </p>
+                        <ul class="space-y-4 list-none font-mono text-sm">
+                            <li class="flex gap-4">
+                                <span class="text-accent">01.</span>
+                                <div>
+                                    <span class="text-white">Drowsiness Detection:</span> Eye-movement monitoring via the smartphone's front-facing camera. A CV model tracks eye closure patterns in real time and triggers an audio alert when drowsiness is detected.
+                                </div>
+                            </li>
+                            <li class="flex gap-4">
+                                <span class="text-accent">02.</span>
+                                <div>
+                                    <span class="text-white">Collision Warning:</span> A Luxonis OAK-D Lite stereo depth camera monitors the road ahead. Depth estimation is used to calculate the distance to the nearest obstacle and warn the driver when a collision is imminent.
+                                </div>
+                            </li>
+                            <li class="flex gap-4">
+                                <span class="text-accent">03.</span>
+                                <div>
+                                    <span class="text-white">Plug-and-Play:</span> The entire system runs headlessly on boot. Mount the phone, attach the OAK-D to the dashboard, and the device is ready — no technical setup required from the user.
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Architecture image -->
+                <section>
+                    <h3 class="text-3xl font-medium mb-6">Architecture</h3>
+                    <div class="bg-bgCard border border-borderMain rounded-sm overflow-hidden">
+                        <img src="safedash_architecture.png" alt="Safe Dash Architecture" class="w-full object-cover">
+                    </div>
+                </section>
+
+                <!-- Metrics -->
+                <section class="bg-bgCard border border-borderMain p-8 rounded-sm">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-12 h-12 rounded bg-accentDim flex items-center justify-center">
+                            <i class="ph ph-trophy text-2xl text-accent"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-white">Result</h4>
+                            <p class="text-xs font-mono text-textMuted uppercase tracking-wider">Dragonhack 2023 &middot; Ljubljana, Slovenia</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div>
+                            <div class="text-3xl font-medium text-accent mb-1">1st</div>
+                            <div class="text-xs font-mono text-textMuted uppercase">Most Innovative Hack</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-medium text-white mb-1">2</div>
+                            <div class="text-xs font-mono text-textMuted uppercase">Safety Systems</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-medium text-white mb-1">0</div>
+                            <div class="text-xs font-mono text-textMuted uppercase">Vehicle Modifications</div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Right: sidebar -->
+            <div class="lg:col-span-4">
+                <div class="sticky top-32 space-y-8">
+
+                    <!-- Tech stack -->
+                    <div>
+                        <h2 class="text-sm font-mono text-accent uppercase tracking-widest mb-6">Tech Stack</h2>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="bg-bgCard border border-borderMain p-4 rounded-sm hover:border-accent transition-colors">
+                                <i class="devicon-python-plain colored text-2xl mb-2"></i>
+                                <div class="text-sm font-mono text-white">Python</div>
+                            </div>
+                            <div class="bg-bgCard border border-borderMain p-4 rounded-sm hover:border-accent transition-colors">
+                                <i class="devicon-opencv-plain colored text-2xl mb-2"></i>
+                                <div class="text-sm font-mono text-white">OpenCV</div>
+                            </div>
+                            <div class="bg-bgCard border border-borderMain p-4 rounded-sm hover:border-accent transition-colors">
+                                <i class="devicon-pytorch-original colored text-2xl mb-2"></i>
+                                <div class="text-sm font-mono text-white">PyTorch</div>
+                            </div>
+                            <div class="bg-bgCard border border-borderMain p-4 rounded-sm hover:border-accent transition-colors">
+                                <i class="devicon-java-plain colored text-2xl mb-2"></i>
+                                <div class="text-sm font-mono text-white">Java</div>
+                            </div>
+                            <div class="bg-bgCard border border-borderMain p-4 rounded-sm hover:border-accent transition-colors">
+                                <i class="ph ph-cpu text-2xl text-green-400 mb-2"></i>
+                                <div class="text-sm font-mono text-white">OAK-D Lite</div>
+                            </div>
+                            <div class="bg-bgCard border border-borderMain p-4 rounded-sm hover:border-accent transition-colors">
+                                <i class="ph ph-circuit-board text-2xl text-red-400 mb-2"></i>
+                                <div class="text-sm font-mono text-white">Raspberry Pi 5</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- My Role -->
+                    <div class="p-6 border border-borderMain bg-bgCard/50 rounded-sm">
+                        <h4 class="text-sm font-mono text-white mb-4 uppercase tracking-wider">My Role</h4>
+                        <ul class="space-y-3 text-sm text-textMuted font-mono">
+                            <li class="flex items-center gap-2"><i class="ph ph-check text-accent"></i> Drowsiness Detection Model</li>
+                            <li class="flex items-center gap-2"><i class="ph ph-check text-accent"></i> System Architecture</li>
+                            <li class="flex items-center gap-2"><i class="ph ph-check text-accent"></i> Collision Warning (partial)</li>
+                        </ul>
+                    </div>
+
+                    <!-- GitHub link -->
+                    <a href="https://github.com/wrathchild14/no_policy" target="_blank" rel="noopener" class="flex items-center justify-center gap-2 w-full py-4 bg-white text-black font-medium hover:bg-accent transition-colors rounded-sm">
+                        <i class="ph ph-github-logo text-xl"></i> View Repository
+                    </a>
+
+                    <!-- Collaboration -->
+                    <div class="p-6 border border-borderMain bg-bgCard/50 rounded-sm">
+                        <h4 class="text-xs font-mono text-textMuted uppercase tracking-widest mb-4">Developed in collaboration with</h4>
+                        <div class="flex items-center gap-4 p-3 border border-borderMain rounded-sm bg-bgCard hover:border-accent transition-colors">
+                            <img src="ljubljana.png" alt="University of Ljubljana" class="w-10 h-10 object-contain bg-white rounded-sm p-1 flex-shrink-0">
+                            <span class="text-sm font-mono text-white">University of Ljubljana</span>
+                        </div>
+                        <div class="flex items-center gap-4 p-3 border border-borderMain rounded-sm bg-bgCard hover:border-accent transition-colors mt-3">
+                            <img src="dragonhack.jpg" alt="Dragonhack" class="w-10 h-10 object-contain bg-white rounded-sm p-1 flex-shrink-0">
+                            <span class="text-sm font-mono text-white">Dragonhack Ljubljana</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="bg-bgCard border-t border-borderMain py-12">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="font-mono text-sm text-textMuted">&copy; 2025 Predrag Djindjic</div>
+            <div class="flex gap-8">
+                <a href="esg-analyzer.html" class="text-sm font-mono text-white hover:text-accent flex items-center gap-2">
+                    Next Project <i class="ph ph-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
