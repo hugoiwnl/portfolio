@@ -66,8 +66,27 @@
                 </a>
                 <a href="mailto:hugoserbia@gmail.com" class="px-5 py-2.5 bg-white text-black hover:bg-accent transition-colors rounded-sm font-medium">Contact</a>
             </div>
+            <button id="mobile-menu-btn" class="md:hidden text-white p-2" onclick="toggleMobileMenu()">
+                <i id="mobile-menu-icon" class="ph ph-list text-2xl"></i>
+            </button>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-bgMain border-t border-borderMain px-6 py-4 flex flex-col gap-4 font-mono text-sm">
+            <a href="index.html#about" onclick="toggleMobileMenu()" class="text-textMuted hover:text-white transition-colors py-2 border-b border-borderMain">Home</a>
+            <a href="index.html#projects" onclick="toggleMobileMenu()" class="text-textMuted hover:text-white transition-colors py-2 border-b border-borderMain flex items-center gap-2"><i class="ph ph-arrow-left"></i> Back to Projects</a>
+            <a href="index.html#experience" onclick="toggleMobileMenu()" class="text-textMuted hover:text-white transition-colors py-2 border-b border-borderMain">Experience</a>
+            <a href="index.html#research" onclick="toggleMobileMenu()" class="text-textMuted hover:text-white transition-colors py-2 border-b border-borderMain">Research</a>
+            <a href="mailto:hugoserbia@gmail.com" class="mt-2 px-5 py-3 bg-white text-black hover:bg-accent transition-colors rounded-sm font-medium text-center">Contact</a>
         </div>
     </nav>
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('mobile-menu-icon');
+            menu.classList.toggle('hidden');
+            icon.className = menu.classList.contains('hidden') ? 'ph ph-list text-2xl' : 'ph ph-x text-2xl';
+        }
+    </script>
 
     <!-- Hero + Preview -->
     <header class="relative pt-32 pb-16 overflow-hidden border-b border-borderMain">

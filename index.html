@@ -87,11 +87,28 @@
                 <a href="#research" class="text-textMuted hover:text-white transition-colors">05. Research</a>
                 <a href="#contact" class="px-5 py-2.5 bg-white text-black hover:bg-accent transition-colors rounded-sm font-medium">Contact</a>
             </div>
-            <button class="md:hidden text-white">
-                <i class="ph ph-list text-2xl"></i>
+            <button id="mobile-menu-btn" class="md:hidden text-white p-2" onclick="toggleMobileMenu()">
+                <i id="mobile-menu-icon" class="ph ph-list text-2xl"></i>
             </button>
         </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-bgMain border-t border-borderMain px-6 py-4 flex flex-col gap-4 font-mono text-sm">
+            <a href="#about" onclick="toggleMobileMenu()" class="text-textMuted hover:text-white transition-colors py-2 border-b border-borderMain">01. About</a>
+            <a href="#stack" onclick="toggleMobileMenu()" class="text-textMuted hover:text-white transition-colors py-2 border-b border-borderMain">02. Stack</a>
+            <a href="#experience" onclick="toggleMobileMenu()" class="text-textMuted hover:text-white transition-colors py-2 border-b border-borderMain">03. Experience</a>
+            <a href="#projects" onclick="toggleMobileMenu()" class="text-textMuted hover:text-white transition-colors py-2 border-b border-borderMain">04. Projects</a>
+            <a href="#research" onclick="toggleMobileMenu()" class="text-textMuted hover:text-white transition-colors py-2 border-b border-borderMain">05. Research</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="mt-2 px-5 py-3 bg-white text-black hover:bg-accent transition-colors rounded-sm font-medium text-center">Contact</a>
+        </div>
     </nav>
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('mobile-menu-icon');
+            menu.classList.toggle('hidden');
+            icon.className = menu.classList.contains('hidden') ? 'ph ph-list text-2xl' : 'ph ph-x text-2xl';
+        }
+    </script>
 
     <!-- Hero / About -->
     <section id="about" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
