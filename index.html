@@ -123,7 +123,7 @@
                     <span class="text-xs font-mono text-textMuted uppercase tracking-wider">Available for new opportunities</span>
                 </div>
 
-                <h1 class="text-5xl lg:text-7xl font-medium tracking-tighter leading-[1.1] mb-6">
+                <h1 class="text-4xl lg:text-6xl font-medium tracking-tighter leading-[1.1] mb-6">
                     Hi, I'm <span class="text-accent" style="text-shadow: 0 0 24px rgba(198,248,97,0.35)">Predrag</span>. I research, build, and <span class="italic text-textMuted">deploy</span> data science solutions that
                     <span class="text-accent inline-block relative">
                         work.
@@ -147,19 +147,17 @@
                 </div>
             </div>
 
-            <!-- Avatar -->
-            <div class="lg:col-span-3 z-10 flex justify-center">
-                <div class="relative" style="transform: rotate(3deg);">
-                    <div class="absolute -inset-4 bg-accent/10 blur-3xl rounded-full -z-10"></div>
-                    <img src="images/avatar.png" alt="Predrag Djindjic" class="w-56 h-72 lg:w-64 lg:h-80 rounded-2xl object-cover object-top shadow-2xl border-2 border-borderMain">
-                </div>
-            </div>
-
-            <!-- Terminal -->
-            <div class="lg:col-span-4 z-10 relative">
+            <!-- Terminal + Avatar overlay -->
+            <div class="lg:col-span-7 z-10 relative">
                 <div class="absolute -inset-1 bg-gradient-to-tr from-accent/20 to-transparent blur-2xl -z-10 rounded-full"></div>
 
-                <div class="bg-[#0c0c0c] rounded-lg border border-borderMain shadow-2xl overflow-hidden flex flex-col h-full min-h-[400px]">
+                <!-- Avatar overlapping terminal -->
+                <div class="absolute -left-10 top-1/2 -translate-y-1/2 z-20" style="transform: translateY(-50%) rotate(3deg);">
+                    <div class="absolute -inset-4 bg-accent/10 blur-3xl rounded-full -z-10"></div>
+                    <img src="images/avatar.png" alt="Predrag Djindjic" class="w-44 h-60 rounded-2xl object-cover object-top shadow-2xl border-2 border-borderMain">
+                </div>
+
+                <div class="bg-[#0c0c0c] rounded-lg border border-borderMain shadow-2xl overflow-hidden flex flex-col h-full min-h-[400px] pl-32">
                     <div class="flex items-center px-4 py-3 bg-[#111] border-b border-borderMain">
                         <div class="flex gap-2">
                             <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
